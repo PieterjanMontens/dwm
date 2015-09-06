@@ -1,0 +1,17 @@
+#!/bin/sh
+## More DWM Debian info:
+## http://forums.debian.net/viewtopic.php?f=16&t=65110
+# Install basic utils
+sudo apt-get install build-essential libx11-dev libxinerama-dev sharutils suckless-tools libc6 libx11-6 libxinerama1 xfonts-terminus
+
+# First build & install
+sudo make clean install
+
+# Add xsessions .desktop file
+sudo cp ./dwm.desktop /usr/share/xsessions/ 
+
+# Add dwm as window-manager alternative
+sudo update-alternatives --install /usr/bin/x-window-manager x-window-manager /usr/local/bin/dwm 30
+
+# Update alternative
+sudo update-alternatives --config x-window-manager
