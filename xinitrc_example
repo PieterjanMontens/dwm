@@ -1,0 +1,10 @@
+while true; do 
+    datedisp=$(date +"%a %d/%m/%y %k:%M:%S")
+    proc_info=$(uptime | sed 's/.*: //; s/,//g; s/\s.*//g')
+    #batt_perc=$(acpi | sed -r 's/^.*([0-9]{2}%).*$/\1/g')
+    #xsetroot -name "${proc_info} | ${batt_perc} | ${datedisp}";
+    xsetroot -name "${proc_info} | ${batt_perc} | ${datedisp}";
+    sleep 5;
+done  &
+
+. /etc/X11/XSession
